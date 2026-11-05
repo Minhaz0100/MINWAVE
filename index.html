@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b0a"><meta name="description" content="A personal music space. Listen, collect, and discover.">
+  <link rel="manifest" href="manifest.json"><link rel="icon" href="minwave-logo.png"><link rel="stylesheet" href="styles.css">
+  <title>MINWAVE — your music, your space</title>
+</head>
+<body>
+  <div id="auth" class="auth-screen hidden"><div class="auth-card"><a class="brand" href="#"><img class="brand-mark" src="minwave-logo.png" alt=""> MINWAVE</a><p class="eyebrow">YOUR MUSIC, YOUR SPACE</p><h1 id="auth-title">Welcome back.</h1><p class="muted" id="auth-subtitle">Sign in to pick up where you left off.</p><form id="auth-form"><label>Your name<input name="name" autocomplete="name" placeholder="Your name" class="register-only"></label><label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input name="password" type="password" autocomplete="current-password" placeholder="At least 6 characters" minlength="6" required></label><button class="primary full" id="auth-submit">Sign in</button></form><button class="text-button" id="auth-toggle">New here? Create an account</button><p class="tiny">Your library is saved privately in this browser.</p></div></div>
+  <div class="app-shell">
+    <aside class="sidebar"><a class="brand" href="#home"><img class="brand-mark" src="minwave-logo.png" alt=""> MINWAVE</a>
+      <nav class="primary-nav"><button class="nav-item active" data-view="home"><span>⌂</span> Home</button><button class="nav-item" data-view="search"><span>⌕</span> Search</button><button class="nav-item" data-view="library"><span>▤</span> Your Library</button></nav>
+      <div class="side-rule"></div><div class="side-heading">YOUR COLLECTION <button id="new-playlist" title="Create playlist">＋</button></div><button class="nav-item" data-view="liked"><span class="heart-symbol">♥</span> Liked Songs</button><div id="playlist-nav" class="playlist-nav"></div>
+      <div class="sidebar-bottom"><button class="nav-item" data-view="upload"><span>↑</span> Add your music</button><div class="profile-mini"><div id="avatar" class="avatar">M</div><div><strong id="profile-name">Listener</strong><small id="profile-email">Local account</small></div><button id="logout" title="Sign out">↗</button></div></div>
+    </aside>
+    <main class="main"><header class="topbar"><div class="history-buttons"><button id="back" aria-label="Go back">‹</button><button id="forward" aria-label="Go forward">›</button></div><div class="top-actions"><button class="icon-button" id="install" hidden>＋ Install app</button><button class="icon-button" id="history-open">◷ <span>History</span></button><button class="profile-pill" id="profile-button"><span id="top-avatar" class="avatar small">M</span><span id="top-name">Listener</span><span>⌄</span></button></div></header><section id="content" class="content"></section></main>
+    <footer class="player"><div class="now-playing"><div class="cover cover-small" id="current-cover">♫</div><div class="track-meta"><strong id="current-title">Choose a song</strong><span id="current-artist">Your listening journey starts here</span></div><button id="like-current" class="like-button" aria-label="Like song">♡</button></div><div class="player-center"><div class="controls"><button id="shuffle" title="Shuffle">⤨</button><button id="previous" title="Previous">|‹</button><button id="play" class="play-button" title="Play">▶</button><button id="next" title="Next">›|</button><button id="repeat" title="Repeat">↻</button></div><div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="1000" value="0"><span id="duration">0:00</span></div></div><div class="player-extra"><button id="queue-button" title="Queue">☷</button><span>◖))</span><input id="volume" type="range" min="0" max="1" step="0.01" value="0.75" aria-label="Volume"></div><audio id="audio" preload="metadata"></audio></footer>
+  </div>
+  <input id="file-picker" type="file" accept="audio/*" multiple hidden>
+  <div id="toast" class="toast"></div><div id="modal-root"></div>
+  <script src="app.js"></script>
+</body></html>
